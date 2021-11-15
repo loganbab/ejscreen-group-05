@@ -7,6 +7,21 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+# attach packages
+
+library(janitor)
+library(here)
+library(tidyverse)
+
 ```
 
-test
+```{r}
+# read in data
+
+ces <- read_csv(here("data", "ces3demographics.csv")) %>% 
+  clean_names()
+```
+```
+
+test go okay ?
