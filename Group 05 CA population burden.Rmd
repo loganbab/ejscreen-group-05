@@ -5,8 +5,8 @@ date: "November 12, 2021"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 # attach packages
 
@@ -23,10 +23,11 @@ ces <- read_csv(here("data", "ces3demographics.csv")) %>%
   clean_names()
 ```
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 ggplot(data = ces, aes(x = white_percent, y = ces_3_0_score)) +
-  geom_hex() + scale_fill_gradient(low = "red", high = "yellow")
-  labs(x = "White population percentage", y = "CalEnviroSrcreen pollution burden score") +
+  geom_hex() + 
+  scale_fill_gradient(low = "red", high = "yellow") +
+  labs(x = "White Population Percentage", y = "CalEnviroSrcreen Pollution Burden Score", caption = "Figure 1 shows the relationship between the percent of the US population that is white and the community pollution burden score. The pollution burden score is a function of exposure to harmful environmental impacts and the community's socioeconomic characteristics.") +
   theme_minimal()
 ```
 
